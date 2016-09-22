@@ -2,7 +2,8 @@
 *{
 	padding:0;
 	margin:0;
-	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	     box-sizing: border-box;
 }
 html,
 body{
@@ -106,6 +107,7 @@ a:visited{
   text-decoration: none;
   padding-bottom:1px;
   border-bottom:1px solid #e67e22; 
+  -webkit-transition:border-bottom 0.2s,color 0.2s; 
   transition:border-bottom 0.2s,color 0.2s;
 }
 a:hover,
@@ -122,6 +124,7 @@ input[type=submit] {
 	font-weight:300;
 	text-decoration:none;
 	border-radius:200px;
+	-webkit-transition:background-color 0.2s,border 0.2s,color 0.2s;
 	transition:background-color 0.2s,border 0.2s,color 0.2s;
 }
 
@@ -159,19 +162,35 @@ input[type=submit]{
 /* header */
 /*        */
 
-header{
-	background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)),url(img/hero.jpg);
-	background-size:cover;/* 把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。*/
-	background-position: center;
-	height:100vh; /* 100%viewport */
-	background-attachment: fixed;
+ header{
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	height: 100vh;
+} 
+.mask{
+	background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7));
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
 }
+#video{
+	min-width: 100%;
+	position: absolute;
+	z-index: -1;
+}
+
 .hero-text-box{
 	position: absolute;
 	width:1140px;
 	top:50%;
 	left:50%;
-	transform:translate(-50%,-50%);
+	-webkit-transform:translate(-50%,-50%);
+	        transform:translate(-50%,-50%);
+
 }
 
 .logo{
@@ -180,6 +199,16 @@ header{
 	float:left;
 	margin-top:20px;
 }
+
+.logo-black{
+	display: none;
+	height:50px;
+	width:auto;
+	float:left;
+	margin:5px 0;
+}
+
+/* main nav */
 
 .main-nav{
 	float:right;
@@ -200,12 +229,49 @@ header{
 	text-transform: uppercase;
 	font-size:90%;
 	border-bottom:2px solid transparent;
+	-webkit-transition:border-bottom 0.2s;
 	transition:border-bottom 0.2s;
 }
 .main-nav li a:hover,
 .main-nav li a:active{
 	border-bottom:2px solid #e67e22;
 }
+
+/* mobile nav*/
+.mobile-nav-icon{
+	float: right;
+	margin-top: 3%;
+	cursor: pointer;
+	display: none;
+}
+.mobile-nav-icon i{
+	font-size: 200%;
+	color: #fff;
+}
+/* sticky nav*/
+.sticky{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: rgba(255,255,255,0.98);
+	box-shadow: 0 2px 2px #efefef;
+}
+.sticky .main-nav{
+	margin-top: 18px;
+}
+.sticky .main-nav li a:link,
+.sticky .main-nav li a:visited{
+	padding:16px 0;
+	color:#555;
+}
+.sticky .logo{
+	display: none;
+}
+.sticky .logo-black{
+	display: block;
+}
+
 /* features */
 /*          */
 .section-features .long-copy{
@@ -238,11 +304,12 @@ header{
 	opacity: 0.7;
 	width:100%; /* li的100% 跟随父级meal-photo,而meal-photo的父级跟随li所以是li的25/100 */
     height:auto;
-    transform:scale(1.15);
+	transform:scale(1.15);
     transition:transform 0.5s,opacity 0.5s;
 }
 .meal-photo img:hover{
-	transform:scale(1.03);
+	-webkit-transform:scale(1.03);
+	        transform:scale(1.03);
 	opacity:1;
 }
 /*  how it works  */
@@ -303,6 +370,7 @@ header{
 /* testimonials */
 /*              */
 .section-testimonials{
+	background-image:-webkit-linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)),url(img/back-customers.jpg);
 	background-image:linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)),url(img/back-customers.jpg);
 	background-size:cover;
 	color:#fff;
@@ -399,9 +467,7 @@ textarea{
 	border-radius:3px;
 	border:1px solid #ccc;
 }
-textarea{
-	height:
-}
+
 input[type=checkbox]{
 	margin:10px 5px 10px 0;
 }
@@ -441,6 +507,7 @@ footer{
    text-decoration: none;
    border:0;
    color:#888;
+   -webkit-transition:color 0.2s;
    transition:color 0.2s;
 }
 .footer-nav li a:hover,
@@ -455,7 +522,7 @@ footer{
 .ion-social-twitter,
 .ion-social-googleplus,
 .ion-social-instagram{
-transition color 0.2s;
+transition: color 0.2s
 }
 .ion-social-facebook:hover{
 	color:#3b5998;
@@ -473,4 +540,22 @@ footer p{
 	color:#888;
 	text-align: center;
 	margin-top:20px;
+}
+
+/*  animation    */
+/*              */
+
+.js--wp-1,
+.js--wp-2,
+.js--wp-3{
+	opacity: 0;
+	animation-duration: 0.8s;
+}
+.js--wp-4{
+	animation-duration: 0.8s;
+}
+.js--wp-1.animated,
+.js--wp-2.animated,
+.js--wp-3.animated{
+     opacity: 1;
 }
