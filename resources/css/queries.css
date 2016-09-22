@@ -16,8 +16,19 @@
   body{
     font-size:18px;
   }
+  header{
+  background-image:-webkit-linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)),url(img/hero.jpg);
+  background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)),url(img/hero.jpg);
+  background-size:cover;/* 把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。*/
+  background-position: center;
+   /* 100%viewport */
+  background-attachment: fixed; 
+  }
   section{
     padding:60px 0;
+  }
+  #video{
+    display: none;
   }
   .long-copy{
     width:80%;
@@ -50,7 +61,7 @@
   }
   .plan-box{
     width:100%;
-    margin-left:0%;
+    margin-left:0;
   }
   .plan-price{
     font-size:250%;
@@ -129,7 +140,7 @@ h2{
 
 .long-copy{
   width:100%;
-  margin-left:0%;
+  margin-left:0;
 }
 .app-screen{
   width:40%;

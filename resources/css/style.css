@@ -162,14 +162,27 @@ input[type=submit]{
 /* header */
 /*        */
 
-header{
-	background-image:-webkit-linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)),url(img/hero.jpg);
-	background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)),url(img/hero.jpg);
-	background-size:cover;/* 把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。*/
-	background-position: center;
-	height:100vh; /* 100%viewport */
-	background-attachment: fixed;
+ header{
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	height: 100vh;
+} 
+.mask{
+	background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7));
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
 }
+#video{
+	min-width: 100%;
+	position: absolute;
+	z-index: -1;
+}
+
 .hero-text-box{
 	position: absolute;
 	width:1140px;
@@ -177,6 +190,7 @@ header{
 	left:50%;
 	-webkit-transform:translate(-50%,-50%);
 	        transform:translate(-50%,-50%);
+
 }
 
 .logo{
@@ -242,7 +256,6 @@ header{
 	width: 100%;
 	background-color: rgba(255,255,255,0.98);
 	box-shadow: 0 2px 2px #efefef;
-	z-index: 2;
 }
 .sticky .main-nav{
 	margin-top: 18px;
@@ -291,12 +304,8 @@ header{
 	opacity: 0.7;
 	width:100%; /* li的100% 跟随父级meal-photo,而meal-photo的父级跟随li所以是li的25/100 */
     height:auto;
-    -webkit-transform:scale(1.15);
-            transform:scale(1.15);
-    -webkit-transition:opacity 0.5s,-webkit-transform 0.5s;
-    transition:opacity 0.5s,-webkit-transform 0.5s;
+	transform:scale(1.15);
     transition:transform 0.5s,opacity 0.5s;
-    transition:transform 0.5s,opacity 0.5s,-webkit-transform 0.5s;
 }
 .meal-photo img:hover{
 	-webkit-transform:scale(1.03);
@@ -458,9 +467,7 @@ textarea{
 	border-radius:3px;
 	border:1px solid #ccc;
 }
-textarea{
-	height:
-}
+
 input[type=checkbox]{
 	margin:10px 5px 10px 0;
 }
@@ -515,7 +522,7 @@ footer{
 .ion-social-twitter,
 .ion-social-googleplus,
 .ion-social-instagram{
-transition color 0.2s;
+transition: color 0.2s
 }
 .ion-social-facebook:hover{
 	color:#3b5998;
@@ -537,6 +544,7 @@ footer p{
 
 /*  animation    */
 /*              */
+
 .js--wp-1,
 .js--wp-2,
 .js--wp-3{
@@ -547,7 +555,7 @@ footer p{
 	animation-duration: 0.8s;
 }
 .js--wp-1.animated,
-.js--wp-2.animated
+.js--wp-2.animated,
 .js--wp-3.animated{
      opacity: 1;
 }

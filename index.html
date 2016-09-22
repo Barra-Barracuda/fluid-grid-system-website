@@ -9,14 +9,17 @@
 	<link rel="stylesheet" href="vendors/css/grid.css">
 	<link rel="stylesheet" href="vendors/css/ionicons.min.css">
 	<link rel="stylesheet" href="vendors/css/animate.css" />
-	<link rel="stylesheet"  href="resources/css/style.min.css">
-	<link rel="stylesheet"  href="resources/css/queries.min.css">
+	<link rel="stylesheet"  href="resources/css/style.css">
+	<link rel="stylesheet"  href="resources/css/queries.css">
 	<link href='https://fonts.css.network/css?family=Lato:100,300,400,300i' rel='stylesheet' type='text/css'>
 	<title>Omifood</title>
 	<link rel="shortcut icon" href="favicon.ico">
 </head>
 <body>
 	<header>
+		<div class="mask">
+		<video id="video" preload="auto" src="resources/data/videoplayback.mp4" autoplay poster="resources/css/img/hero.jpg" loop="loop" muted="muted">
+		</video>
 		<nav>
 			<div class="row">
 				<img src="resources/img/logo-white.png" alt="Omifood logo" class="logo">
@@ -34,6 +37,7 @@
 			<h1>Goodbye junk food.<br>Hello super healthy meals.</h1>
 			<a class="btn btn-full js--scroll-to-plans" href="#">I’m hungry</a>
 			<a class="btn btn-ghost js--scroll-to-start" href="#">Show me more</a>
+		</div>
 		</div>
 	</header>
 
@@ -364,7 +368,7 @@
 						<label>Newsletter</label>
 					</div>
 					<div class="col span-2-of-3">
-						<input type="checkbox" name="news" id="news" checked>Yes,please
+						<input type="checkbox" name="news" id="news" checked placeholder="">Yes,please
 					</div>
 				</div>
 				<div class="row">
@@ -412,9 +416,7 @@
 	</footer>
 	<script src="vendors/js/jquery-1.11.3.js"></script>
 	<script src="vendors/js/jquery.waypoints.min.js"></script>
-	<script src="vendors/js/response.js"></script>
-	<script src="vendors/js/html5shiv.js"></script>
-	<script src="vendors/js/selectivizr.js"></script>
 	<script src="resources/js/script.js"></script>
 </body>
 </html>
+ 
